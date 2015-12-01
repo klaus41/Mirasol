@@ -11,7 +11,7 @@ namespace MirasolProxy
     {
         public ApartmentProxyService GetApartmentProxy()
         {
-            return new ApartmentProxyService;
+            return new ApartmentProxyService();
         }
     }
 }
