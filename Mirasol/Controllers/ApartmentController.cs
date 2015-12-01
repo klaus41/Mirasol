@@ -20,17 +20,26 @@ namespace Mirasol.Controllers
 
         public ActionResult Create(Apartment apartment)
         {
-            //facade.GetApartmentProxy().Add(apartment);
+            facade.GetApartmentProxy().Create(apartment);
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Update(int id)
+        {
+            Apartment apartment = facade.GetApartmentProxy().Find(id);
             return View();
         }
 
-        public ActionResult Update()
+        [HttpPost]
+        public ActionResult Update(Apartment apartment)
         {
+            facade.GetApartmentProxy().Update(apartment);
             return View();
         }
 
-        public ActionResult Delete()
+        public ActionResult Delete(int id)
         {
+            facade.GetApartmentProxy().Delete(id);
             return View();
         }
     }
