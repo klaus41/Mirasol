@@ -18,5 +18,13 @@ namespace MirasolProxy.Proxies
                 return response.Content.ReadAsAsync<IEnumerable<Apartment>>().Result;
             }
         }
+
+        public Apartment Create()
+        {
+            using (var client = new HttpClient())
+            {
+                return null;
+            }
+        }
     }
 }

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTOModel", "DTOModel\DTOMod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MirasolProxy", "MirasolProxy\MirasolProxy.csproj", "{AD9ECF95-55B3-45E1-892D-7A9490403CE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirasol", "Mirasol\Mirasol.csproj", "{88A931A7-DC38-4B49-A47C-B0AE9182ECF6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirasol", "Mirasol\Mirasol.csproj", "{2FC049EC-1B9F-446F-9D0C-D37EE1814550}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{AD9ECF95-55B3-45E1-892D-7A9490403CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD9ECF95-55B3-45E1-892D-7A9490403CE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD9ECF95-55B3-45E1-892D-7A9490403CE1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{88A931A7-DC38-4B49-A47C-B0AE9182ECF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{88A931A7-DC38-4B49-A47C-B0AE9182ECF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{88A931A7-DC38-4B49-A47C-B0AE9182ECF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{88A931A7-DC38-4B49-A47C-B0AE9182ECF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FC049EC-1B9F-446F-9D0C-D37EE1814550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FC049EC-1B9F-446F-9D0C-D37EE1814550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FC049EC-1B9F-446F-9D0C-D37EE1814550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FC049EC-1B9F-446F-9D0C-D37EE1814550}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
