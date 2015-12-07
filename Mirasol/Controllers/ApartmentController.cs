@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Mirasol.Controllers
 {
-    public class ApartmentController : Controller 
+    public class ApartmentController : Controller
     {
         private Facade facade = new Facade();
 
