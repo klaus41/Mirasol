@@ -10,7 +10,7 @@ namespace MirasolProxy.Proxies
 {
     public class ApartmentProxyService
     {
-        string apiUrl = "http://localhost:41434/api/apartment/";
+        string apiUrl = "http://localhost:9262/api/apartment/";
 
         public Apartment Find(int id)
         {
