@@ -9,11 +9,7 @@ namespace DTOModel
     public class AbstractModel
     {
         public int Id { get; set; }
-
-        public string PlsWork()
-        {
-            return base.GetType().Name;
-        }
+        
 
 
     }
