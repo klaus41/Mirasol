@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 namespace DTOModel
 {
 
-    public class Apartment
+    public class Apartment : AbstractModel
     {
-        public int Id { get; set; }
         public string Address { get; set; }
         public int Bedrooms { get; set; }
         public int Sleeps { get; set; }
@@ -27,5 +26,11 @@ namespace DTOModel
         public bool Balcony { get; set; }
         public bool AirCondition { get; set; }
         public bool Heating { get; set; }
+        public string Name { get; set; }
+        public string PicturePath { get; set; }
+        public int PriceLowSeason { get; set; }
+        public int PriceMiddleSeason { get; set; }
+        public int PriceHighSeason { get; set; }
+        public virtual Facilities Facilities { get; set; }
     }
 }
