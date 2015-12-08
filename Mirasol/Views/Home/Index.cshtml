@@ -1,31 +1,586 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    Layout = null;
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Mirasol</title>
+    <style type="text/css">
+        html, body{
+	        width: 100%;
+	        height: 100%;
+	        padding: 0px;
+	        margin: 0px;
+	        overflow-x: hidden;
+	        -webkit-user-select: none;
+	        -moz-user-select: none;
+	        -ms-user-select: none;
+	        user-select: none;
+        }
+        body{
+	        background-image: url('http://leaguematch.altervista.org/background.jpg');
+	        background-size: cover;
+	        background-repeat: no-repeat;
+	        min-height: 600px;
+        }
+        a{
+	        text-decoration: none;
+        }
+        input[type=radio]{
+	        display: none;
+        }
+        #logo{
+	        position: absolute;
+	        left: 50%;
+	        top: 50px;
+	        font-weight: bold;
+	        color: white;
+	        font-family: Arial;
+	        font-size: 16px;
+        }
+        #logo:after{
+	        content: '.com';
+	        font-weight: normal;
+        }
+        #apartments, #aboutUs, #info, #login{
+	        position: absolute;
+	        left: 50%;
+	        top: 50px;
+	        background-color: black;
+	        color: white;
+	        cursor: pointer;
+	        border: 1px solid white;
+	        width: 120px;
+	        padding-top: 12px;
+	        padding-bottom: 12px;
+	        text-align: center;
+	        font-family: Arial;
+	        box-shadow: 5px 5px 2px black;
+	        -webkit-transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+	        -moz-transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+	        -o-transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+	        transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+	        -webkit-animation-name: start;
+	        -moz-animation-name: start;
+	        -o-animation-name: start;
+	        animation-name: start;
+	        -webkit-animation-duration: 2s;
+	        -moz-animation-duration: 2s;
+	        -o-animation-duration: 2s;
+	        animation-duration: 2s;
+        }
+        #apartments:hover, #aboutUs:hover, #info:hover, #login:hover{
+	        color: black;
+	        border-color: black;
+	        background-color: white;
+        }
+        #apartments:active, #aboutUs:active, #info:active, #login:active{
+	        -webkit-transform: translate(1px, 1px);
+	        -moz-transform: translate(1px, 1px);
+	        -ms-transform: translate(1px, 1px);
+	        -o-transform: translate(1px, 1px);
+	        transform: translate(1px, 1px);
+	        box-shadow: 4px 4px 2px black;
+        }
+        #logoCheck:checked ~ #homeDiv{
+	        left: 50%;
+	        opacity: 1;
+	        -webkit-transition-property: left, opacity;
+	        -moz-transition-property: left, opacity;
+	        -o-transition-property: left, opacity;
+	        transition-property: left, opacity;
+	        -webkit-transition-duration: 2s, 1s;
+	        -moz-transition-duration: 2s, 1s;
+	        -o-transition-duration: 2s, 1s;
+	        transition-duration: 2s, 1s;
+	        -webkit-transition-delay: 0s, 0.7s;
+	        -moz-transition-delay: 0s, 0.7s;
+	        -o-transition-delay: 0s, 0.7s;
+	        transition-delay: 0s, 0.7s;
+        }
+        #logoCheck:not(:checked) ~ #homeDiv{
+	        left: -50%;
+	        opacity: 0;
+	        -webkit-transition: left 2.5s ease, opacity 1s ease;
+	        -moz-transition: left 2.5s ease, opacity 1s ease;
+	        -o-transition: left 2.5s ease, opacity 1s ease;
+	        transition: left 2.5s ease, opacity 1s ease;
+        }
+        #apartmentsCheck:checked ~ #leftApartmentDiv{
+	        left: 50%;
+	        opacity: 1;
+	        -webkit-transition-property: left, opacity;
+	        -moz-transition-property: left, opacity;
+	        -o-transition-property: left, opacity;
+	        transition-property: left, opacity;
+	        -webkit-transition-duration: 2s, 1s;
+	        -moz-transition-duration: 2s, 1s;
+	        -o-transition-duration: 2s, 1s;
+	        transition-duration: 2s, 1s;
+	        -webkit-transition-delay: 0s, 0.7s;
+	        -moz-transition-delay: 0s, 0.7s;
+	        -o-transition-delay: 0s, 0.7s;
+	        transition-delay: 0s, 0.7s;
+        }
+        #apartmentsCheck:checked ~ #rightApartmentDiv{
+	        left: 50%;
+	        opacity: 1;
+	        -webkit-transition-property: left, opacity;
+	        -moz-transition-property: left, opacity;
+	        -o-transition-property: left, opacity;
+	        transition-property: left, opacity;
+	        -webkit-transition-duration: 2s, 1s;
+	        -moz-transition-duration: 2s, 1s;
+	        -o-transition-duration: 2s, 1s;
+	        transition-duration: 2s, 1s;
+	        -webkit-transition-delay: 0s, 0.7s;
+	        -moz-transition-delay: 0s, 0.7s;
+	        -o-transition-delay: 0s, 0.7s;
+	        transition-delay: 0s, 0.7s;
+        }
+        #apartmentsCheck:not(:checked) ~ #leftApartmentDiv{
+	        left: -50%;
+	        opacity: 0;
+	        -webkit-transition: left 2.5s ease, opacity 1s ease;
+	        -moz-transition: left 2.5s ease, opacity 1s ease;
+	        -o-transition: left 2.5s ease, opacity 1s ease;
+	        transition: left 2.5s ease, opacity 1s ease;
+        }
+        #apartmentsCheck:not(:checked) ~ #rightApartmentDiv{
+	        left: 150%;
+	        opacity: 0;
+	        -webkit-transition: left 2.5s ease, opacity 1s ease;
+	        -moz-transition: left 2.5s ease, opacity 1s ease;
+	        -o-transition: left 2.5s ease, opacity 1s ease;
+	        transition: left 2.5s ease, opacity 1s ease;
+        }
+        #aboutUsCheck:checked ~ #aboutUsDiv{
+	        left: 50%;
+	        opacity: 1;
+	        -webkit-transition-property: left, opacity;
+	        -moz-transition-property: left, opacity;
+	        -o-transition-property: left, opacity;
+	        transition-property: left, opacity;
+	        -webkit-transition-duration: 2s, 1s;
+	        -moz-transition-duration: 2s, 1s;
+	        -o-transition-duration: 2s, 1s;
+	        transition-duration: 2s, 1s;
+	        -webkit-transition-delay: 0s, 0.7s;
+	        -moz-transition-delay: 0s, 0.7s;
+	        -o-transition-delay: 0s, 0.7s;
+	        transition-delay: 0s, 0.7s;
+        }
+        #aboutUsCheck:not(:checked) ~ #aboutUsDiv{
+	        left: -50%;
+	        opacity: 0;
+	        -webkit-transition: left 2.5s ease, opacity 1s ease;
+	        -moz-transition: left 2.5s ease, opacity 1s ease;
+	        -o-transition: left 2.5s ease, opacity 1s ease;
+	        transition: left 2.5s ease, opacity 1s ease;
+        }
+        #infoCheck:checked ~ #infoDiv{
+	        left: 50%;
+	        opacity: 1;
+	        -webkit-transition-property: left, opacity;
+	        -moz-transition-property: left, opacity;
+	        -o-transition-property: left, opacity;
+	        transition-property: left, opacity;
+	        -webkit-transition-duration: 2s, 1s;
+	        -moz-transition-duration: 2s, 1s;
+	        -o-transition-duration: 2s, 1s;
+	        transition-duration: 2s, 1s;
+	        -webkit-transition-delay: 0s, 0.7s;
+	        -moz-transition-delay: 0s, 0.7s;
+	        -o-transition-delay: 0s, 0.7s;
+	        transition-delay: 0s, 0.7s;
+        }
+        #infoCheck:not(:checked) ~ #infoDiv{
+	        left: 150%;
+	        opacity: 0;
+	        -webkit-transition: left 2.5s ease, opacity 1s ease;
+	        -moz-transition: left 2.5s ease, opacity 1s ease;
+	        -o-transition: left 2.5s ease, opacity 1s ease;
+	        transition: left 2.5s ease, opacity 1s ease;
+        }
+        #logo{
+	        margin-left: -500px;
+	        -webkit-animation-name: start;
+	        -moz-animation-name: start;
+	        -o-animation-name: start;
+	        animation-name: start;
+	        -webkit-animation-duration: 2s;
+	        -moz-animation-duration: 2s;
+	        -o-animation-duration: 2s;
+	        animation-duration: 2s;
+        }
+        #apartments{
+	        margin-left: -40px;
+        }
+        #aboutUs{
+	        margin-left: 100px;
+        }
+        #info{
+	        margin-left: 240px;
+        }
+        #login{
+	        margin-left: 380px;
+        }
+        #homeDiv{
+	        position: absolute;
+            padding: 10px;
+            font-family: Arial;
+            font-size: 16px;
+	        top: 150px;
+	        left: 50%;
+	        margin-left: -500px;
+	        width: 1000px;
+	        background-color: rgba(255, 255, 255, 0.75);
+	        box-shadow: 4px 4px 2px black;
+	        -webkit-animation-name: homeDivStart;
+	        -moz-animation-name: homeDivStart;
+	        -o-animation-name: homeDivStart;
+	        animation-name: homeDivStart;
+	        -webkit-animation-duration: 2s;
+	        -moz-animation-duration: 2s;
+	        -o-animation-duration: 2s;
+	        animation-duration: 2s;
+        }
+        #leftApartmentDiv{
+	        position: absolute;
+            display: block;
+	        top: 150px;
+	        left: -50%;
+	        margin-left: -425px;
+	        width: 400px;
+	        height: 400px;
+	        background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9c/Tp2.jpg');
+            background-size: 100% 100%;
+	        opacity: 0;
+	        box-shadow: 4px 4px 2px black;
+        }
+        #leftApartmentDiv:hover > #leftApartmentNameDiv, #rightApartmentDiv:hover > #rightApartmentNameDiv{
+            background-color: rgba(0, 0, 0, 0.75);
+        }
+        #leftApartmentNameDiv{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            line-height: 400px;
+            font-size: 70px;
+            text-align: center;
+            font-family: Arial;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.35);
+            transition: 0.3s;
+        }
+        #rightApartmentDiv{
+	        position: absolute;
+            display: block;
+	        top: 150px;
+	        left: 150%;
+	        margin-left: 25px;
+	        width: 400px;
+	        height: 400px;
+            background-image: url('http://www.marbella.gr/files/8gallery/lightbox/beach/Marbella14-1018.jpg');
+            background-size: 100% 100%;
+	        opacity: 0;
+	        box-shadow: 4px 4px 2px black;
+        }
+        #rightApartmentNameDiv{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            line-height: 400px;
+            font-size: 70px;
+            text-align: center;
+            font-family: Arial;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.35);
+            transition: 0.3s;
+        }
+        #aboutUsDiv{
+	        position: absolute;
+	        top: 150px;
+	        left: -50%;
+	        margin-left: -500px;
+	        width: 1000px;
+	        height: 400px;
+	        background-color: rgba(255, 255, 255, 0.75);
+	        opacity: 0;
+	        box-shadow: 4px 4px 2px black;
+        }
+        #infoDiv{
+	        position: absolute;
+	        top: 150px;
+	        left: 150%;
+	        margin-left: -500px;
+	        width: 1000px;
+	        height: 400px;
+	        background-color: rgba(255, 255, 255, 0.75);
+	        opacity: 0;
+	        box-shadow: 4px 4px 2px black;
+        }
+        #loginFormCover{
+	        display: block;
+	        position: absolute;
+	        height: 100%;
+	        width: 100%;
+	        background-color: rgba(0, 0, 0, 0.75);
+	        opacity: 0;
+	        cursor: default;
+	        z-index: -99999;
+        }
+        #loginForm{
+	        position: absolute;
+	        top: 50%;
+	        left: 50%;
+	        width: 175px;
+	        height: 170px;
+	        margin-top: -130px;
+	        margin-left: -100px;
+	        z-index: -99999;
+	        opacity: 0;
+	        padding: 20px;
+	        background-color: rgba(255, 255, 255, 0.75);
+	        font-family: Arial;
+	        font-size: 16px;
+	        box-shadow: 4px 4px 2px black;
+        }
+        #loginForm:target{
+	        opacity: 1;
+	        z-index: 99999;
+        }
+        #loginForm:target ~ a#loginFormCover{
+	        z-index: 99998;
+	        opacity: 1;
+        }
+        .spacer{
+	        margin-top: 10px;
+        }
+        #register{
+	        float: right;
+	        color: black;
+        }
+        @@-webkit-keyframes homeDivStart{
+	        0%{
+		        opacity: 0;
+		        left: -50%;
+	        }
+	        40%{
+		        opacity: 0;
+	        }
+	        100%{
+		        opacity: 1;
+		        left: 50%;
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
+	        }
+        }
+        @@-moz-keyframes homeDivStart{
+	        0%{
+		        opacity: 0;
+		        left: -50%;
+	        }
+	        40%{
+		        opacity: 0;
+	        }
+	        100%{
+		        opacity: 1;
+		        left: 50%;
+	        }
+        }
+        @@-ms-keyframes homeDivStart{
+	        0%{
+		        opacity: 0;
+		        left: -50%;
+	        }
+	        40%{
+		        opacity: 0;
+	        }
+	        100%{
+		        opacity: 1;
+		        left: 50%;
+	        }
+        }
+        @@-o-keyframes homeDivStart{
+	        0%{
+		        opacity: 0;
+		        left: -50%;
+	        }
+	        40%{
+		        opacity: 0;
+	        }
+	        100%{
+		        opacity: 1;
+		        left: 50%;
+	        }
+        }
+        @@keyframes homeDivStart{
+	        0%{
+		        opacity: 0;
+		        left: -50%;
+	        }
+	        40%{
+		        opacity: 0;
+	        }
+	        100%{
+		        opacity: 1;
+		        left: 50%;
+	        }
+        }
+        @@-webkit-keyframes start{
+	        0%{
+		        opacity: 0;
+		        left: 150%;
+	        }
+	        40%{
+		        opacity: 0;
+	        }
+	        100%{
+		        opacity: 1;
+		        left: 50%;
+	        }
+        }
+        @@-moz-keyframes start{
+	        0%{
+		        opacity: 0;
+		        left: 150%;
+	        }
+	        40%{
+		        opacity: 0;
+	        }
+	        100%{
+		        opacity: 1;
+		        left: 50%;
+	        }
+        }
+        @@-ms-keyframes start{
+	        0%{
+		        opacity: 0;
+		        left: 150%;
+	        }
+	        40%{
+		        opacity: 0;
+	        }
+	        100%{
+		        opacity: 1;
+		        left: 50%;
+	        }
+        }
+        @@-o-keyframes start{
+	        0%{
+		        opacity: 0;
+		        left: 150%;
+	        }
+	        40%{
+		        opacity: 0;
+	        }
+	        100%{
+		        opacity: 1;
+		        left: 50%;
+	        }
+        }
+        @@keyframes start{
+	        0%{
+		        opacity: 0;
+		        left: 150%;
+	        }
+	        40%{
+		        opacity: 0;
+	        }
+	        100%{
+		        opacity: 1;
+		        left: 50%;
+	        }
+        }
+        #torroxApartmentSelection{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: gold;
+            left: -100%;
+        }
+    </style>
+</head>
+<body>
+    <input name="linkGroup" type="radio" id="logoCheck" checked>
+    <label id="logo" for="logoCheck">Mirasol</label>
+    <input name="linkGroup" type="radio" id="apartmentsCheck">
+    <label id="apartments" for="apartmentsCheck">Apartments</label>
+    <input name="linkGroup" type="radio" id="aboutUsCheck">
+    <label id="aboutUs" for="aboutUsCheck">About Us</label>
+    <input name="linkGroup" type="radio" id="infoCheck">
+    <label id="info" for="infoCheck">Information</label>
+    <a id="login" href="#loginForm">Log In</a>
+    <div id="homeDiv">
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            The accommodation extends from Torre del Mar to Nerja.<br />
+            We have holiday homes / flats called and house accommodating from 2 to 12 people.<br />
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p>
+            Costa del Sol is located along Spain 's southern coastline , which stretches from Gibraltar in the west to Nerja in the east<br />
+            The nearest airport is Malaga Airport is located approx. 50 kilometers from Torrox<br />
+        </p>
+        <p>
+            Worth a visit<br />
+            For its very versatile surroundings and facilities are Costa del Sol definitely a preferred holiday destination for many people.<br />
+            Costa del Sol has a privileged climate with mild winters and hot summers and can enjoy 330 days of sunshine a year , hence the nickname Costa del Sol .<br />
+            Torrox has the best climate in Europe, shows a climatic study by the company MeteoGroup .<br />
+        </p>
+        <p>
+            Outdoor activities , beach and culture<br />
+            The great climate also means that a wide range of outdoor activities can be enjoyed virtually every day of the year . Sunshine all year round and lovely beaches are complimented by a rich local heritage and a wide range of leisure activities. It is not surprising that Costa del Sol has millions of visitors each year.<br />
+            With over 60 golf courses are Costa del Sol unsurprisingly called Costa del Golf. The number and quality of golf courses combined with the perfect climate for golfing all year round makes the area attractive for thousands of golf enthusiasts every year.<br />
+        </p>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div id="leftApartmentDiv">
+        <input name="apartmentGroup" type="radio" id="leftApartmentNameChecked" />
+        <label id="leftApartmentNameDiv" for="leftApartmentNameChecked">
+            Torrox
+        </label>
+        <input name="apartmentGroup" type="radio" id="leftApartmentNameUnchecked" />
+        <label id="leftApartmentNameUncheckedLabel" for="leftApartmentNameUnchecked">
+            Go Back
+        </label>
+        <div id="torroxApartmentSelection">
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div id="rightApartmentDiv">
+        <input type="radio" id="rightApartmentNameChecked" />
+        <label id="rightApartmentNameDiv" for="rightApartmentNameChecked">
+            Marbella
+        </label>
+        <input type="radio" id="rightApartmentNameUnchecked" />
+        <label id="rightApartmentNameUncheckedLabel for="rightApartmentNameUnchecked">
+            Go Back
+        </label>
+        <div id="marbellaApartmentSelection">
+        </div>
     </div>
-</div>
+    <div id="aboutUsDiv">
+    </div>
+    <div id="infoDiv">
+    </div>
+    <div id="loginForm">
+        <form>
+            <div class="spacer">
+                E-Mail:<br>
+                <input type="email">
+            </div>
+            <div class="spacer other">
+                Password:<br>
+                <input type="password">
+            </div>
+            <div class="spacer other">
+                <input id="rememberCheck" type="checkbox">
+                <label id="remember" for="rememberCheck">Remember Me</label>
+            </div>
+            <div class="spacer other">
+                <input type="submit" value="Log In">
+                <a href="#register" id="register">Register</a>
+            </div>
+        </form>
+    </div>
+    <a href="#" id="loginFormCover">
+    </a>
+</body>
+</html>

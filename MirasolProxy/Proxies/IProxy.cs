@@ -13,7 +13,5 @@ namespace MirasolProxy.Proxies
         void Delete(int id);
         void Update(T t);
         void FInd(int id);
-
-
     }
 }
