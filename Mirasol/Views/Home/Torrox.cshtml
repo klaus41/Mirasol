@@ -1,12 +1,80 @@
-﻿@{
+﻿@model IEnumerable<DTOModel.Apartment>
+@{ 
     Layout = null;
 }
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Torrox Apartments</title>
+        <title>Torrox - Mirasol Apartments</title>
+        <style type="text/css">
+            html, body{
+                padding: 0px;
+                margin: 0px;
+                text-align: center;
+                background-image: url('http://leaguematch.altervista.org/background.jpg');
+                background-size: cover;
+                background-attachment: fixed;
+                font-size: 0px;
+            }
+            #mainWrapper{
+                position: relative;
+                width: 1000px;
+                min-width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: left;
+            }
+            #websiteTitleHeader{
+                margin-top: 50px;
+                margin-left: 50px;
+                margin-right: 50px;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                font-family: Arial;
+                font-size: 70px;
+                line-height: 70px;
+                text-align: center;
+                background-color: white;
+                border-radius: 30px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                cursor: default;
+            }
+            a{
+                text-decoration: none;
+            }
+            .apartmentBox{
+                display: inline-block;
+                color: black;
+                width: 400px;
+                height: 400px;
+                border-radius: 50px;
+                line-height: 400px;
+                text-align: center;
+                margin: 50px;
+                background-color: white;
+                font-family: Arial;
+                font-size: 30px;
+                transition: 0.2s;
+            }
+            .apartmentBox:hover{
+                transform: scale(1.1);
+            }
+        </style>
     </head>
     <body>
-        
+        <div id="mainWrapper">
+            <div id="websiteTitleHeader">
+                Apartments in Torrox
+            </div>
+            @for (int i = 0; i < Model.Count(); i++)
+            {
+                <a href="#@Model.ElementAt(i).Name" class="apartmentBox">
+                    @Model.ElementAt(i).Name
+                </a>
+            }
+        </div>
     </body>
 </html>

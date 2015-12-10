@@ -11,8 +11,9 @@ namespace MirasolProxy.Proxies
     public abstract class AbstractProxy<T> where T : AbstractModel, new()
     {
         static T type = new T();
-        string apiUrl = "http://localhost:9262/api/" + type.ToString();
-        IEnumerable<T> ReadAll()
+        static string[] splitUp = type.ToString().Split('.');
+        string apiUrl = "http://localhost:9262/api/" + splitUp[1];
+        public IEnumerable<T> ReadAll()
         {
             using (var client = new HttpClient())
             {
@@ -20,14 +21,14 @@ namespace MirasolProxy.Proxies
                 return response.Content.ReadAsAsync<IEnumerable<T>>().Result;
             }
         }
-        T Create(T t) {
+        public T Create(T t) {
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response = client.PostAsJsonAsync(apiUrl, t).Result;
                 return response.Content.ReadAsAsync<T>().Result;
             }
         }
-        T Delete(int id)
+        public T Delete(int id)
         {
             using (var client = new HttpClient())
             {
@@ -35,7 +36,7 @@ namespace MirasolProxy.Proxies
                 return response.Content.ReadAsAsync<T>().Result;
             }
         }
-        T Update(T t)
+        public T Update(T t)
         {
             using (var client = new HttpClient())
             {
@@ -43,7 +44,7 @@ namespace MirasolProxy.Proxies
                 return response.Content.ReadAsAsync<T>().Result;
             }
         }
-        T Find(int id)
+        public T Find(int id)
         {
             using (var client = new HttpClient())
             {

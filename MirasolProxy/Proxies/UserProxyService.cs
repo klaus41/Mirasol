@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MirasolProxy.Proxies
 {
-    public class UserProxyService : IProxy<User>
+    public class UserProxyService : AbstractProxy<User>
     {
         string apiUrl = "http://localhost:9262/api/user/";
         public User Create(User t)

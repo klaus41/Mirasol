@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MirasolProxy.Proxies
 {
-    public class FacilitiesProxyService : IProxy<Facilities>
+    public class FacilitiesProxyService : AbstractProxy<Facilities>
     {
         string apiUrl = "http://localhost:9262/api/facilities/";
         public Facilities Create(Facilities t)

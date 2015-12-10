@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DTOModel;
+using MirasolProxy;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,18 +15,11 @@ namespace Mirasol.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Torrox()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            Facade facade = new Facade();
+            IEnumerable<Apartment> listOfTorroxApartments = facade.GetApartmentFilter().GetAllTorroxApartments();
+            return View(listOfTorroxApartments);
         }
     }
 }

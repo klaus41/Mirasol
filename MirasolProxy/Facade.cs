@@ -1,4 +1,5 @@
-﻿using MirasolProxy.Proxies;
+﻿using MirasolProxy.Filter;
+using MirasolProxy.Proxies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,10 @@ namespace MirasolProxy
         public ApartmentProxyService GetApartmentProxy()
         {
             return new ApartmentProxyService();
+        }
+        public ApartmentFilter GetApartmentFilter()
+        {
+            return new ApartmentFilter();
         }
     }
 }
