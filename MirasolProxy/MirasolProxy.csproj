@@ -71,10 +71,7 @@
     <Compile Include="Facade.cs" />
     <Compile Include="Filter\ApartmentFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proxies\ApartmentProxyService.cs" />
-    <Compile Include="Proxies\FacilitiesProxyService.cs" />
-    <Compile Include="Proxies\AbstractProxy.cs" />
-    <Compile Include="Proxies\UserProxyService.cs" />
+    <Compile Include="Proxies\AbstractProxyService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
