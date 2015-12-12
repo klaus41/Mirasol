@@ -10,10 +10,9 @@ namespace MirasolProxy.Filter
 {
     public class ApartmentFilter
     {
-        ApartmentProxyService aps = new ApartmentProxyService();
         public IEnumerable<Apartment> ReadAllApartments()
         {
-            return aps.ReadAll();
+            return new ApartmentProxyService().ReadAll();
         }
 
         public IEnumerable<Apartment> GetAllTorroxApartments()

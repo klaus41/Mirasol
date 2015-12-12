@@ -10,13 +10,14 @@ namespace MirasolProxy
 {
     public class Facade
     {
-        public ApartmentProxyService GetApartmentProxy()
-        {
-            return new ApartmentProxyService();
-        }
         public ApartmentFilter GetApartmentFilter()
         {
             return new ApartmentFilter();
+        }
+
+        public ApartmentProxyService GetApartmentProxyService()
+        {
+            return new ApartmentProxyService();
         }
     }
 }

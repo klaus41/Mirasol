@@ -72,6 +72,7 @@
     <Compile Include="Filter\ApartmentFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proxies\AbstractProxyService.cs" />
+    <Compile Include="Proxies\ApartmentProxyService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

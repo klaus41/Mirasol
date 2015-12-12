@@ -21,5 +21,14 @@ namespace Mirasol.Controllers
             IEnumerable<Apartment> listOfTorroxApartments = facade.GetApartmentFilter().GetAllTorroxApartments();
             return View(listOfTorroxApartments);
         }
+
+        public ActionResult Marbella()
+        {
+            Facade facade = new Facade();
+            IEnumerable<Apartment> listOfMarbellaApartments = facade.GetApartmentFilter().GetAllMarbellaApartments();
+            return View(listOfMarbellaApartments);
+        }
+
+        public ActionResult 
     }
 }
