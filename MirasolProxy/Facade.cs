@@ -10,14 +10,76 @@ namespace MirasolProxy
 {
     public class Facade
     {
+
+        private ApartmentProxyService apartmentProxy;
+        private ApartmentFilter apartmentFilter;
+        private FacilitiesProxyService facilitiesProxy;
+        private AddressProxyService addressProxy;
+        private BookingsProxyService bookingsProxy;
+        private PricesProxyService pricesProxy;
+        private UserProxyService userProxy;
+
         public ApartmentFilter GetApartmentFilter()
         {
-            return new ApartmentFilter();
+            if (apartmentFilter == null)
+            {
+                apartmentFilter = new ApartmentFilter();
+            }
+            return apartmentFilter;
         }
 
         public ApartmentProxyService GetApartmentProxyService()
         {
-            return new ApartmentProxyService();
+            if (apartmentProxy == null)
+            {
+                apartmentProxy = new ApartmentProxyService();
+            }
+            return apartmentProxy;
+        }
+
+        public FacilitiesProxyService GetFacilitiesProxyService()
+        {
+            if (facilitiesProxy == null)
+            {
+                facilitiesProxy = new FacilitiesProxyService();
+            }
+            return facilitiesProxy;
+        }
+
+        public AddressProxyService GetAddressProxyService()
+        {
+            if (addressProxy == null)
+            {
+                addressProxy = new AddressProxyService();
+            }
+            return addressProxy;
+        }
+
+        public BookingsProxyService GetBookingsProxyService()
+        {
+            if (bookingsProxy == null)
+            {
+                bookingsProxy = new BookingsProxyService();
+            }
+            return bookingsProxy;
+        }
+
+        public PricesProxyService GetPricesProxyService()
+        {
+            if (pricesProxy == null)
+            {
+                pricesProxy = new PricesProxyService();
+            }
+            return pricesProxy;
+        }
+
+        public UserProxyService GetUserProxyService()
+        {
+            if (userProxy == null)
+            {
+                userProxy = new UserProxyService();
+            }
+            return userProxy;
         }
     }
 }

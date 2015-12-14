@@ -14,5 +14,8 @@ namespace DTOModel
         public string Beds { get; set; }
         public string Views { get; set; }
         public string SuitableFor { get; set; }
+        public string Notes { get; set; }
+        public string General { get; set; }
+        public string Outside { get; set; }
     }
 }

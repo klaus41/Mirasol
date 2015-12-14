@@ -60,9 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractModel.cs" />
+    <Compile Include="Address.cs" />
     <Compile Include="Apartment.cs" />
     <Compile Include="Bookings.cs" />
     <Compile Include="Facilities.cs" />
+    <Compile Include="Prices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>

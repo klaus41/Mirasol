@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTOModel", "DTOModel\DTOModel.csproj", "{A0B97DA9-D35D-4A60-B8AC-D3E8551966F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "DTOModel\Model.csproj", "{A0B97DA9-D35D-4A60-B8AC-D3E8551966F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MirasolProxy", "MirasolProxy\MirasolProxy.csproj", "{AD9ECF95-55B3-45E1-892D-7A9490403CE1}"
 EndProject
