@@ -20,7 +20,7 @@ namespace Mirasol.Controllers
 
         public ActionResult Delete(int id)
         {
-            facade.GetUserProxyService().Delete(id):
+            facade.GetUserProxyService().Delete(id);
             return View();
         }
 
