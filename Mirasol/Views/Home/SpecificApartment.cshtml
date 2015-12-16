@@ -63,7 +63,7 @@
             @for(int i = 1; i <= Model.PictureURLs.Count; i++)
             {
                 @MvcHtmlString.Create(getCSSImageClass(i) + "background-image: url(" + getCSSImageLink(i) + ");}");
-                @MvcHtmlString.Create(getCSSIndexCode(i) + "z-index: 99999;}");
+                @MvcHtmlString.Create(getCSSIndexCode(i) + "z-index: 99988;}");
             }
         </style>
         <!--GALLERY CSS CODE GENERATION ENDS HERE-->
@@ -74,11 +74,12 @@
                 padding: 0px;
                 margin: 0px;
                 font-size: 0px;
+                overflow: hidden;
                 /*background-image: url('http://leaguematch.altervista.org/background.jpg');
                 background-size: 100% 100%;
                 background-attachment: fixed;*/
             }
-            #apartmentTitleHeader{
+            .sectionHeader{
                 position: absolute;
                 top: 10px;
                 left: 10px;
@@ -122,6 +123,7 @@
                 border: 1px solid white;
                 -webkit-user-select: none;
                 z-index: -99999;
+                cursor: pointer;
             }
             .label:hover{
                 background-color: #00aa00;
@@ -134,82 +136,159 @@
             }
             /*THE GALLERY STYLE ENDS HERE*/
             /*THE SECTION/SCROLLING STYLE STARTS HERE*/
-            .sectionLabel{
-                position: absolute;
-                bottom: 0%;
-                width: 25%;
-                font-size: 3vh;
-                color: white;
-                font-family: Arial;
-                z-index: 99999;
-                width: 25%;
-                text-align: center;
-                background-color: brown;
-            }
-            #firstSectionLabel{
-                left: 0%;
-            }
-            #secondSectionLabel{
-                left: 25%;
-            }
-            #thirdSectionLabel{
-                left: 50%;
-            }
-            #fourthSectionLabel{
-                left: 75%;
-            }
-            .contentSection{
+            #contentWrapper{
                 position: absolute;
                 left: 0%;
                 top: 0%;
                 width: 100%;
                 height: 100%;
+                transition: 2s ease;
+            }
+            .sectionLabel{
+                position: fixed;
+                bottom: 0px;
+                width: 25%;
+                height: 30px;
+                line-height: 30px;
+                font-size: 18px;
+                color: white;
+                font-family: Arial;
+                z-index: 99999;
+                width: 20%;
+                text-align: center;
+                background-color: #3b1f0d;
+                cursor: pointer;
+                -webkit-user-select: none;
+            }
+            .sectionLabel:hover{
+                background-color: #613d25;
+            }
+            #firstSectionLabel{
+                left: 0%;
+            }
+            #secondSectionLabel{
+                left: 20%;
+            }
+            #thirdSectionLabel{
+                left: 40%;
+            }
+            #fourthSectionLabel{
+                left: 60%;
+            }
+            #fifthSectionLabel{
+                left: 80%;
+            }
+            .contentSection{
+                position: absolute;
+                top: 0%;
+                width: 100%;
+                height: 100%;
             }
             #firstSection{
-                background-color: green;
+                background-color: #4c72ed;
+                left: 0%;
+                vertical-align: middle;
             }
             #secondSection{
-                background-color: #ed0ce9;
+                left: 100%;
+                background-color: #0c42f2;
             }
-
+            #thirdSection{
+                left: 200%;
+                background-color: #4c72ed;
+            }
+            #fourthSection{
+                left: 300%;
+                background-color: #0c42f2;
+            }
+            #fifthSection{
+                left: 400%;
+                background-color: #4c75ed;
+            }
+            #firstSectionCheck:checked ~ #firstSectionLabel, #secondSectionCheck:checked ~ #secondSectionLabel, #thirdSectionCheck:checked ~ #thirdSectionLabel, #fourthSectionCheck:checked ~ #fourthSectionLabel, #fifthSectionCheck:checked ~ #fifthSectionLabel{
+                background-color: #826E46;
+            }
+            #firstSectionCheck:checked ~ #contentWrapper{
+                left: 0%;
+            }
+            #secondSectionCheck:checked ~ #contentWrapper{
+                left: -100%;
+            }
+            #thirdSectionCheck:checked ~ #contentWrapper{
+                left: -200%;
+            }
+            #fourthSectionCheck:checked ~ #contentWrapper{
+                left: -300%;
+            }
+            #fifthSectionCheck:checked ~ #contentWrapper{
+                left: -400%;
+            }
+            #description{
+                position: absolute;
+                display: table;
+                width: 100%;
+                height: 100%;
+                vertical-align: middle;
+            }
+            #description p{
+                display: table-cell;
+                vertical-align: middle;
+                text-align: justify;
+                padding-left: 70px;
+                padding-right: 70px;
+                font-family: Arial;
+                font-size: 20px;
+                color: white;
+                line-height: 30px;
+            }
         </style>
         <!--THE REST OF THE WEBSITE STYLE ENDS HERE-->
     </head>
     <body>
         <input id="firstSectionCheck" class="radioButton" type="radio" name="sectionGroup" checked/>
-        <label id="firstSectionLabel" class="sectionLabel">Top</label>
+        <label id="firstSectionLabel" class="sectionLabel" for="firstSectionCheck">Information</label>
         <input id="secondSectionCheck" class="radioButton" type="radio" name="sectionGroup" />
-        <label id="secondSectionLabel" class="sectionLabel">Gallery</label>
+        <label id="secondSectionLabel" class="sectionLabel" for="secondSectionCheck">Gallery</label>
         <input id="thirdSectionCheck" class="radioButton" type="radio" name="sectionGroup" />
-        <label id="thirdSectionLabel" class="sectionLabel">Pricing</label>
+        <label id="thirdSectionLabel" class="sectionLabel" for="thirdSectionCheck">Pricing</label>
         <input id="fourthSectionCheck" class="radioButton" type="radio" name="sectionGroup" />
-        <label id="fourthSectionLabel" class="sectionLabel">Location</label>
-        <div id="firstSection" class="contentSection">
-
-        </div>
-        <div id="secondSection" class="contentSection">
-            <div id="apartmentTitleHeader">Gallery</div>
-            <div id="areaApartmentNumber">What the fuck is this shit supposed to be?</div>
-            @for (int i = 1; i <= Model.PictureURLs.Count; i++)
-            {
-                if (i == 1)
+        <label id="fourthSectionLabel" class="sectionLabel" for="fourthSectionCheck">Location</label>
+        <input id="fifthSectionCheck" class="radioButton" type="radio" name="sectionGroup" />
+        <label id="fifthSectionLabel" class="sectionLabel" for="fifthSectionCheck">Reservation</label>
+        <div id="contentWrapper">
+            <div id="firstSection" class="contentSection">
+                <div id="secondSectionHeader" class="sectionHeader">@Model.Name</div>
+                <div id="description">
+                    <p>@Model.Description</p>
+                </div>
+            </div>
+            <div id="secondSection" class="contentSection">
+                <div id="secondSectionHeader" class="sectionHeader">Gallery</div>
+                <div id="areaApartmentNumber">What the fuck is this shit supposed to be?</div>
+                @for (int i = 1; i <= Model.PictureURLs.Count; i++)
                 {
-                    <input id="image1check" class="radioButton" type="radio" name="galleryButtons" checked/>
+                    if (i == 1)
+                    {
+                        <input id="image1check" class="radioButton" type="radio" name="galleryButtons" checked/>
+                    }
+                    else
+                    {
+                        <input id="@getCurrentRadioButtonName(i)" class="radioButton" type="radio" name="galleryButtons" />
+                    }
+                    <div id="@getCurrentImageName(i)" class="currentImage"></div>
+                    <label id="@getPreviousLabelName(i)" class="label prev" for="@getForPrevLabelName(i)"><</label>
+                    <label id="@getNextLabelName(i)" class="label next" for="@getForNextLabelName(i)">></label>
                 }
-                else
-                {
-                    <input id="@getCurrentRadioButtonName(i)" class="radioButton" type="radio" name="galleryButtons" />
-                }
-                <div id="@getCurrentImageName(i)" class="currentImage"></div>
-                <label id="@getPreviousLabelName(i)" class="label prev" for="@getForPrevLabelName(i)"><</label>
-                <label id="@getNextLabelName(i)" class="label next" for="@getForNextLabelName(i)">></label>
-            }
-        </div>
-        <div id="thirdSection" class="contentSection">
-
-        </div>
-        <div id="fourthSection" class="contentSection">
-
+            </div>
+            <div id="thirdSection" class="contentSection">
+                <div id="thirdSectionHeader" class="sectionHeader">Pricing</div>
+            </div>
+            <div id="fourthSection" class="contentSection">
+                <div id="fourthSectionHeader" class="sectionHeader">Location</div>
+            </div>
+            <div id="fifthSection" class="contentSection">
+                <div id="fifthSectionHeader" class="sectionHeader">Reservation</div>
+            </div>
         </div>
     </body>
 </html>

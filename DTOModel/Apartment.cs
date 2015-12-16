@@ -33,5 +33,6 @@ namespace DTOModel
         public bool OutsideJacuzzi { get; set; }
         public virtual Facilities Facilities { get; set; }
         public List<string> PictureURLs { get; set; }
+        public string Description { get; set; }
     }
 }
