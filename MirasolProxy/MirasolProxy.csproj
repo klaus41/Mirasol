@@ -72,7 +72,12 @@
     <Compile Include="Filter\ApartmentFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proxies\AbstractProxyService.cs" />
+    <Compile Include="Proxies\AddressProxyService.cs" />
     <Compile Include="Proxies\ApartmentProxyService.cs" />
+    <Compile Include="Proxies\BookingsProxyService.cs" />
+    <Compile Include="Proxies\FacilitiesProxyService.cs" />
+    <Compile Include="Proxies\PricesProxyService.cs" />
+    <Compile Include="Proxies\UserProxyService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -82,9 +87,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DTOModel\DTOModel.csproj">
+    <ProjectReference Include="..\DTOModel\Model.csproj">
       <Project>{a0b97da9-d35d-4a60-b8ac-d3e8551966f6}</Project>
-      <Name>DTOModel</Name>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
