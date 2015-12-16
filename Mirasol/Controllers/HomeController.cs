@@ -29,6 +29,11 @@ namespace Mirasol.Controllers
             return View(listOfMarbellaApartments);
         }
 
-        public ActionResult 
+        [HttpGet]
+        public ActionResult SpecificApartment(Apartment apartment)
+        {
+            Apartment testApartment = new Apartment() { PictureURLs = new List<string>() { "http://leaguematch.altervista.org/testpictures/image1.jpg", "http://leaguematch.altervista.org/testpictures/image2.jpg", "http://leaguematch.altervista.org/testpictures/image3.jpg", "http://leaguematch.altervista.org/testpictures/image4.jpg", "http://leaguematch.altervista.org/testpictures/image5.jpg" } };
+            return View(testApartment);
+        }
     }
 }

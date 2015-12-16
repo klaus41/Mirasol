@@ -32,5 +32,6 @@ namespace DTOModel
         public int PriceMiddleSeason { get; set; }
         public int PriceHighSeason { get; set; }
         public virtual Facilities Facilities { get; set; }
+        public List<string> PictureURLs { get; set; }
     }
 }

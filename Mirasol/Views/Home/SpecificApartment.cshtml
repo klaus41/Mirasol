@@ -1,0 +1,215 @@
+﻿@model DTOModel.Apartment
+@{
+    Layout = null;
+}
+@functions{
+    public string getCurrentRadioButtonName(int i)
+    {
+        return "image" + i.ToString() + "check";
+    }
+    public string getCurrentImageName(int i)
+    {
+        return "image" + i.ToString();
+    }
+    public string getPreviousLabelName(int i)
+    {
+        return "label" + i.ToString() + "prev";
+    }
+    public string getNextLabelName(int i)
+    {
+        return "label" + i.ToString() + "next";
+    }
+    public string getForPrevLabelName(int i)
+    {
+        if(i == 1)
+        {
+            return "image" + Model.PictureURLs.Count.ToString() + "check";
+        }
+        else
+        {
+            return "image" + (i - 1).ToString() + "check";
+        }
+    }
+    public string getForNextLabelName(int i)
+    {
+        if(i == Model.PictureURLs.Count)
+        {
+            return "image" + (1).ToString() + "check";
+        }
+        else
+        {
+            return "image" + (i + 1).ToString() + "check";
+        }
+    }
+    public string getCSSImageClass(int i)
+    {
+        return "#image" + i.ToString() + "{";
+    }
+    public string getCSSImageLink(int i)
+    {
+        return Model.PictureURLs.ElementAt(i - 1);
+    }
+    public string getCSSIndexCode(int i)
+    {
+        return "#image" + i.ToString() + "check:checked ~ #label" + i.ToString() + "prev, #image" + i.ToString() + "check:checked ~ #label" + i.ToString() + "next, #image" + i.ToString() + "check:checked ~ #image" + i.ToString() + "{";
+    }
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>@Model.Name - Mirasol Apartments</title>
+        <!--GALLERY CSS CODE GENERATION STARTS HERE-->
+        <style>
+            @for(int i = 1; i <= Model.PictureURLs.Count; i++)
+            {
+                @MvcHtmlString.Create(getCSSImageClass(i) + "background-image: url(" + getCSSImageLink(i) + ");}");
+                @MvcHtmlString.Create(getCSSIndexCode(i) + "z-index: 99999;}");
+            }
+        </style>
+        <!--GALLERY CSS CODE GENERATION ENDS HERE-->
+        <!--THE REST OF THE WEBSITE STYLE STARTS HERE-->
+        <style type="text/css">
+            /*THE GENERIC WEBSITE STYLE STARTS HERE*/
+            html, body{
+                padding: 0px;
+                margin: 0px;
+                font-size: 0px;
+                /*background-image: url('http://leaguematch.altervista.org/background.jpg');
+                background-size: 100% 100%;
+                background-attachment: fixed;*/
+            }
+            #apartmentTitleHeader{
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                font-size: 60px;
+                font-family: Arial;
+                color: white;
+            }
+            #areaApartmentNumber{
+                display: none; /*just for now, coz fuck this shit, i don't even fucking know...*/
+            }
+            /*THE GENERIC WEBSITE STYLE ENDS HERE*/
+            /*THE GALLERY STYLE STARTS HERE*/
+            .currentImage{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 600px;
+                height: 400px;
+                margin-left: -300px;
+                margin-top: -200px;
+                border: 1px solid white;
+                background-size: 100% 100%;
+                z-index: -99999;
+            }
+            .radioButton{
+                display: none;
+            }
+            .label{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 80px;
+                height: 100px;
+                margin-top: -50px;
+                line-height: 100px;
+                text-align: center;
+                font-family: Arial;
+                font-size: 80px;
+                color: white;
+                background-color: #007700;
+                border: 1px solid white;
+                -webkit-user-select: none;
+                z-index: -99999;
+            }
+            .label:hover{
+                background-color: #00aa00;
+            }
+            .next{
+                margin-left: 301px;
+            }
+            .prev{
+                margin-left: -381px;
+            }
+            /*THE GALLERY STYLE ENDS HERE*/
+            /*THE SECTION/SCROLLING STYLE STARTS HERE*/
+            .sectionLabel{
+                position: absolute;
+                bottom: 0%;
+                width: 25%;
+                font-size: 3vh;
+                color: white;
+                font-family: Arial;
+                z-index: 99999;
+                width: 25%;
+                text-align: center;
+                background-color: brown;
+            }
+            #firstSectionLabel{
+                left: 0%;
+            }
+            #secondSectionLabel{
+                left: 25%;
+            }
+            #thirdSectionLabel{
+                left: 50%;
+            }
+            #fourthSectionLabel{
+                left: 75%;
+            }
+            .contentSection{
+                position: absolute;
+                left: 0%;
+                top: 0%;
+                width: 100%;
+                height: 100%;
+            }
+            #firstSection{
+                background-color: green;
+            }
+            #secondSection{
+                background-color: #ed0ce9;
+            }
+
+        </style>
+        <!--THE REST OF THE WEBSITE STYLE ENDS HERE-->
+    </head>
+    <body>
+        <input id="firstSectionCheck" class="radioButton" type="radio" name="sectionGroup" checked/>
+        <label id="firstSectionLabel" class="sectionLabel">Top</label>
+        <input id="secondSectionCheck" class="radioButton" type="radio" name="sectionGroup" />
+        <label id="secondSectionLabel" class="sectionLabel">Gallery</label>
+        <input id="thirdSectionCheck" class="radioButton" type="radio" name="sectionGroup" />
+        <label id="thirdSectionLabel" class="sectionLabel">Pricing</label>
+        <input id="fourthSectionCheck" class="radioButton" type="radio" name="sectionGroup" />
+        <label id="fourthSectionLabel" class="sectionLabel">Location</label>
+        <div id="firstSection" class="contentSection">
+
+        </div>
+        <div id="secondSection" class="contentSection">
+            <div id="apartmentTitleHeader">Gallery</div>
+            <div id="areaApartmentNumber">What the fuck is this shit supposed to be?</div>
+            @for (int i = 1; i <= Model.PictureURLs.Count; i++)
+            {
+                if (i == 1)
+                {
+                    <input id="image1check" class="radioButton" type="radio" name="galleryButtons" checked/>
+                }
+                else
+                {
+                    <input id="@getCurrentRadioButtonName(i)" class="radioButton" type="radio" name="galleryButtons" />
+                }
+                <div id="@getCurrentImageName(i)" class="currentImage"></div>
+                <label id="@getPreviousLabelName(i)" class="label prev" for="@getForPrevLabelName(i)"><</label>
+                <label id="@getNextLabelName(i)" class="label next" for="@getForNextLabelName(i)">></label>
+            }
+        </div>
+        <div id="thirdSection" class="contentSection">
+
+        </div>
+        <div id="fourthSection" class="contentSection">
+
+        </div>
+    </body>
+</html>
