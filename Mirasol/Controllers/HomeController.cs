@@ -52,7 +52,13 @@ namespace Mirasol.Controllers
                               "The common areas have swimming pools for adults and children, sun loungers and parasols. Any golf enthusiasts can play on the best" +
                               "courses on the eastern Costa del Sol. The nearest golf courses are Baviera and Añoreta Golf. WiFi free Electricity is charged according" +
                               "to consumption. Pets: ask owner Obligatory final cleaning incl.bed linen and towes. 85, -  € Possibility of" +
-                              "renting linen / towels(1 large + 1 small) only 13, - € per.Per. Big beach towels per.per. 5, - €"
+                              "renting linen / towels(1 large + 1 small) only 13, - € per.Per. Big beach towels per.per. 5, - €",
+                Prices = new Prices()
+                {
+                    LowSeason = 395,
+                    MidSeason = 495,
+                    HighSeason = 595
+                }
             };
             return View(testApartment);
         }
