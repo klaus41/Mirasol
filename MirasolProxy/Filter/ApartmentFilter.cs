@@ -20,6 +20,7 @@ namespace MirasolProxy.Filter
             List<Apartment> listOfTorroxApartments = new List<Apartment>();
             foreach(Apartment apartment in ReadAllApartments())
             {
+                listOfTorroxApartments.Add(apartment);
             }
             return listOfTorroxApartments;
         }

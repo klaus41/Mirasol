@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MirasolProxy;
 using DTOModel;
+using System.Reflection;
+
 namespace MirasolTest
 {
     [TestClass]
@@ -52,9 +54,21 @@ namespace MirasolTest
 
             Prices expectedResult = expectedPrice;
             Prices testResult = facade.GetCurrencyConverter().GetConvertedCurrency(testPrice, "DKK");
-
-            Assert.Equals(expectedPrice, testPrice);
-            
+            Assert.AreEqual(true, ComparePriceChecker(expectedResult, testResult));
+        }
+        
+        public bool ComparePriceChecker(Prices expectedPrice, Prices testPrice)
+        {
+            Prices price = new Prices();
+            PropertyInfo[] arrayOfProperties = price.GetType().GetProperties();
+            foreach(var property in arrayOfProperties)
+            {
+                if (expectedPrice.GetType().GetProperty(property.Name) != testPrice.GetType().GetProperty(property.Name))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
