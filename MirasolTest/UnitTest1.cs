@@ -11,7 +11,7 @@ namespace MirasolTest
         [TestMethod]
         public void TestGetRateDKK()
         {
-            double expectedResult = 7.4617;
+            double expectedResult = 7.4612;
             double testResult = new Facade().GetCurrencyConverter().GetCurrencyRate("DKK");
             Assert.AreEqual(expectedResult, testResult);
         }
@@ -19,7 +19,7 @@ namespace MirasolTest
         [TestMethod]
         public void TestGetRateUSD()
         {
-            double expectedResult = 1.0933;
+            double expectedResult = 1.0841;
             double testResult = new Facade().GetCurrencyConverter().GetCurrencyRate("USD");
             Assert.AreEqual(expectedResult, testResult);
         }
