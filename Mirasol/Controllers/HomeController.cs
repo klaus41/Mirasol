@@ -38,8 +38,7 @@ namespace Mirasol.Controllers
                     "http://leaguematch.altervista.org/testpictures/image2.jpg",
                     "http://leaguematch.altervista.org/testpictures/image3.jpg",
                     "http://leaguematch.altervista.org/testpictures/image4.jpg",
-                    "http://leaguematch.altervista.org/testpictures/image5.jpg",
-                    "'C:/wokr/Mirasol/Mirasol/Resources/1202-1.jpeg'"
+                    "http://leaguematch.altervista.org/testpictures/image5.jpg"
                 },
                 Name = "Calaceite 1202",
                 Description = "Calaceite is located on the outskirts of the coastal town of Torrox-Costa, on a hillside overlooking the Mediterranean." +
@@ -52,7 +51,13 @@ namespace Mirasol.Controllers
                               "The common areas have swimming pools for adults and children, sun loungers and parasols. Any golf enthusiasts can play on the best" +
                               "courses on the eastern Costa del Sol. The nearest golf courses are Baviera and Añoreta Golf. WiFi free Electricity is charged according" +
                               "to consumption. Pets: ask owner Obligatory final cleaning incl.bed linen and towes. 85, -  € Possibility of" +
-                              "renting linen / towels(1 large + 1 small) only 13, - € per.Per. Big beach towels per.per. 5, - €"
+                              "renting linen / towels(1 large + 1 small) only 13, - € per.Per. Big beach towels per.per. 5, - €",
+                Prices = new Prices()
+                {
+                    LowSeason = 395,
+                    MidSeason = 495,
+                    HighSeason = 595
+                }
             };
             return View(testApartment);
         }

@@ -62,7 +62,7 @@
         <style>
             @for(int i = 1; i <= Model.PictureURLs.Count; i++)
             {
-                @MvcHtmlString.Create(getCSSImageClass(i) + "background-image: url(" + getCSSImageLink(i) + ");}");
+                @MvcHtmlString.Create(getCSSImageClass(i) + "background-image: url(\"" + getCSSImageLink(i) + "\");}");
                 @MvcHtmlString.Create(getCSSIndexCode(i) + "z-index: 99988;}");
             }
         </style>
@@ -241,6 +241,35 @@
                 color: white;
                 line-height: 30px;
             }
+            #pricingTableWrapper{
+                position: absolute;
+                display: table;
+                left: 0%;
+                top: 0%;
+                width: 100%;
+                height: 100%;
+                vertical-align: middle;
+                text-align: center;
+            }
+            #pricingTable{
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+            }
+            #pricingTable table{
+                font-family: Arial;
+                font-size: 20px;
+                margin-left: auto;
+                margin-right: auto;
+                color: white;
+                text-align: center;
+                width: 1000px;
+                height: 500px;
+                border-collapse: collapse;
+            }
+            #pricingTable table td{
+                border: 2px solid white;
+            }
         </style>
         <!--THE REST OF THE WEBSITE STYLE ENDS HERE-->
     </head>
@@ -282,6 +311,37 @@
             </div>
             <div id="thirdSection" class="contentSection">
                 <div id="thirdSectionHeader" class="sectionHeader">Pricing</div>
+                <div id="pricingTableWrapper">
+                    <div id="pricingTable">
+                        <table>
+                            <tr>
+                                <td><b>Season</b></td>
+                                <td><b>Date</b></td>
+                                <td><b>Price</b></td>
+                            </tr>
+                            <tr>
+                                <td>Mid Season:</td>
+                                <td>1/3 - 31/5</td>
+                                <td>@Model.Prices.MidSeason</td>
+                            </tr>
+                            <tr>
+                                <td>High Season:</td>
+                                <td>1/6 - 15/9</td>
+                                <td>@Model.Prices.HighSeason</td>
+                            </tr>
+                            <tr>
+                                <td>Mid Season:</td>
+                                <td>16/9 - 31/10</td>
+                                <td>@Model.Prices.MidSeason</td>
+                            </tr>
+                            <tr>
+                                <td>Low Season:</td>
+                                <td>1/11 - 28/2</td>
+                                <td>@Model.Prices.LowSeason</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
             <div id="fourthSection" class="contentSection">
                 <div id="fourthSectionHeader" class="sectionHeader">Location</div>
