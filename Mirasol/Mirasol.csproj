@@ -155,6 +155,24 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Home\ApartmentGallery\1202-1.jpeg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-10.jpeg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-11.jpeg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-12.jpeg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-13.jpeg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-14.jpeg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-15.jpeg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-16.jpg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-17.jpg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-18.jpg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-2.jpeg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-3.jpeg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-4.jpeg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-5.jpeg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-6.jpeg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-7.jpeg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-8.jpeg" />
+    <Content Include="Views\Home\ApartmentGallery\1202-9.jpeg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

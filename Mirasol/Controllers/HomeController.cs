@@ -39,7 +39,7 @@ namespace Mirasol.Controllers
                     "http://leaguematch.altervista.org/testpictures/image3.jpg",
                     "http://leaguematch.altervista.org/testpictures/image4.jpg",
                     "http://leaguematch.altervista.org/testpictures/image5.jpg",
-                    "'C:/wokr/Mirasol/Mirasol/Resources/1202-1.jpeg'"
+                    "ApartmentGallery/1202-10.jpeg"
                 },
                 Name = "Calaceite 1202",
                 Description = "Calaceite is located on the outskirts of the coastal town of Torrox-Costa, on a hillside overlooking the Mediterranean." +

@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\CurrencyConverter.cs" />
     <Compile Include="Facade.cs" />
     <Compile Include="Filter\ApartmentFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

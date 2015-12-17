@@ -1,4 +1,5 @@
-﻿using MirasolProxy.Filter;
+﻿using MirasolProxy.Converters;
+using MirasolProxy.Filter;
 using MirasolProxy.Proxies;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace MirasolProxy
         private BookingsProxyService bookingsProxy;
         private PricesProxyService pricesProxy;
         private UserProxyService userProxy;
+        private CurrencyConverter currencyConverter;
 
         public ApartmentFilter GetApartmentFilter()
         {
@@ -80,6 +82,15 @@ namespace MirasolProxy
                 userProxy = new UserProxyService();
             }
             return userProxy;
+        }
+
+        public CurrencyConverter GetCurrencyConverter()
+        {
+            if (currencyConverter == null)
+            {
+                currencyConverter = new CurrencyConverter();
+            }
+            return currencyConverter;
         }
     }
 }

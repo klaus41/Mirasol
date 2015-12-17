@@ -8,11 +8,11 @@ namespace DTOModel
 {
     public class Prices : AbstractModel
     {
-        public int FinalCleaning { get; set; }
-        public int LinenAndTowels { get; set; }
-        public int BeachTowels { get; set; }
-        public int LowSeason { get; set; }
-        public int MidSeason { get; set; }
-        public int HighSeason { get; set; }
+        public double FinalCleaning { get; set; }
+        public double LinenAndTowels { get; set; }
+        public double BeachTowels { get; set; }
+        public double LowSeason { get; set; }
+        public double MidSeason { get; set; }
+        public double HighSeason { get; set; }
     }
 }
