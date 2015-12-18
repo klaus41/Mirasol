@@ -71,6 +71,7 @@
     <Compile Include="Converters\CurrencyConverter.cs" />
     <Compile Include="Facade.cs" />
     <Compile Include="Filter\ApartmentFilter.cs" />
+    <Compile Include="Login\LoginChecker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proxies\AbstractProxyService.cs" />
     <Compile Include="Proxies\AddressProxyService.cs" />
