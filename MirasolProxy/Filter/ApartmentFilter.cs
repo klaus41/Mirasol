@@ -20,7 +20,11 @@ namespace MirasolProxy.Filter
             List<Apartment> listOfTorroxApartments = new List<Apartment>();
             foreach(Apartment apartment in ReadAllApartments())
             {
-                listOfTorroxApartments.Add(apartment);
+                if (apartment.Address.City.Equals("Torrox"))
+                {
+                    listOfTorroxApartments.Add(apartment);
+                }
+                
             }
             return listOfTorroxApartments;
         }
@@ -30,6 +34,10 @@ namespace MirasolProxy.Filter
             List<Apartment> listOfMarbellaApartments = new List<Apartment>();
             foreach(Apartment apartment in ReadAllApartments())
             {
+                if (apartment.Address.City.Equals("Marbella"))
+                {
+                    listOfMarbellaApartments.Add(apartment);
+                }
             }
             return listOfMarbellaApartments;
         }

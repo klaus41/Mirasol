@@ -7,7 +7,7 @@ using System.Reflection;
 namespace MirasolTest
 {
     [TestClass]
-    public class UnitTest1
+    public class CurrencyTester
     {
         
         [TestMethod]
