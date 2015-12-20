@@ -339,9 +339,38 @@
             <div id="fourthSection" class="contentSection">
                 <div id="fourthSectionHeader" class="sectionHeader">Location</div>
                 <div id="map"></div>
-                <script src="https://maps.googleapis.com/maps/api/js"></script>
                 <script>
-                    
+                    var httpRequest = new XMLHttpRequest();
+                    var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + getURLForAPI("@Model.Address.ToString()") + "&key=AIzaSyBph2P5DtS6yQU_j9MNPFqQ_5qWVcFG9bU";
+                    var latitude, longitude;
+                    httpRequest.onreadystatechange = function () {
+                        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                            var jsonContent = JSON.parse(httpRequest.responseText);
+                            latitude = jsonContent.results[0].geometry.location.lat;
+                            longitude = jsonContent.results[0].geometry.location.lng;
+                            alert(latitude);
+                            alert(longitude);
+                            initialize();
+                        }
+                    };
+                    httpRequest.open("GET", url, true);
+                    httpRequest.send();
+                    function getURLForAPI(address) {
+                        return address.replace(" ", ",+");
+                    }
+                </script>
+                <script src="https://maps.googleapis.com/maps/api/js">
+                    function initialize() {
+                        alert(latitude);
+                        alert(longitude);
+                        var mapCanvas = document.getElementById('map');
+                        var mapOptions = {
+                            center: new google.maps.LatLng(latitude, longitude),
+                            zoom: 7,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        }
+                        var map = new google.maps.Map(mapCanvas, mapOptions);
+                    }
                 </script>
             </div>
             <div id="fifthSection" class="contentSection">

@@ -1,0 +1,31 @@
+﻿@model DTOModel.Apartment
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Creating a new Apartment</title>
+</head>
+<body>
+    <font face="Arial" size="5">Create a new Apartment</font>
+    <form method="post" action="/Apartment/Create">
+        <input placeholder="Name of Apartment" type="text" name="Name" title="What will be the name of this apartment?" required /><br />
+        <input placeholder="House Number" type="number" name="Address.HouseNr" min="1" title="What is the street number of this apartment?" required /><br />
+        <input placeholder="Floor (Optional)" type="number" name="Address.Floor" min="0" title="What floor is this apartment on?" /><br />
+        <input placeholder="Name of Street" type="text" name="Address.StreetName" required title="What street is this apartment located on?" /><br />
+        <input placeholder="Zip Code" type="number" min="0" name="Address.ZipCode" required title="What is the zip code of this apartment's address?" /><br />
+        <input placeholder="City" type="text" name="Address.City" required title="What city is this apartment in?" /><br />
+        <input placeholder="Country" type="text" name="Address.Country" required title="What country is this apartment in?" /><br />
+        <input placeholder="Number of Bedrooms" type="number" min="1" name="Bedrooms" required title="How many bedrooms does this apartment have?" /><br />
+        <input placeholder="Number of People" type="number" min="1" name="Sleeps" required title="How many people can stay at this apartment?" /><br />
+        <input placeholder="Number of Bathrooms" type="number" min="1" name="Bathrooms" required title="How many bathrooms does this apartment have?" /><br />
+        <input placeholder="Number of Toilets" type="number" min="1" name="Toilets" required title="How many toilets does this apartment have?" /><br />
+        <input placeholder="Number of Living Areas" type="number" min="1" name="LivingArea" required title="How many living areas does this apartment have?" /><br />
+        <input placeholder="Number of Terraces" type="number" min="0" name="Terrace" required title="How many terraces does this apartment have?" /><br />
+        <label for="sharedPoolCheckbox"><font face="Arial" size="2" title="Does this apartment have a shared pool?" >Shared Pool:</font></label>
+        <input type="checkbox" id="sharedPoolCheckbox" name="SharedPool" required /><br />
+        <input type="submit" value="Create Apartment" />
+    </form>
+</body>
+</html>

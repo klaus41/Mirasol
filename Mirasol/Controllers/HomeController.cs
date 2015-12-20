@@ -38,8 +38,7 @@ namespace Mirasol.Controllers
                     "http://leaguematch.altervista.org/testpictures/image2.jpg",
                     "http://leaguematch.altervista.org/testpictures/image3.jpg",
                     "http://leaguematch.altervista.org/testpictures/image4.jpg",
-                    "http://leaguematch.altervista.org/testpictures/image5.jpg",
-                    "ApartmentGallery/1202-10.jpeg"
+                    "http://leaguematch.altervista.org/testpictures/image5.jpg"
                 },
                 Name = "Calaceite 1202",
                 Description = "Calaceite is located on the outskirts of the coastal town of Torrox-Costa, on a hillside overlooking the Mediterranean." +
@@ -58,6 +57,14 @@ namespace Mirasol.Controllers
                     LowSeason = 395,
                     MidSeason = 495,
                     HighSeason = 595
+                },
+                Address = new Address()
+                {
+                    StreetName = "Ulica Andrije Ambriovica",
+                    HouseNr = 7,
+                    ZipCode = 10360,
+                    City = "Zagreb",
+                    Country = "Croatia"
                 }
             };
             return View(testApartment);

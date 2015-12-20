@@ -18,12 +18,9 @@ namespace MirasolProxy.Filter
         public IEnumerable<Apartment> GetAllTorroxApartments()
         {
             List<Apartment> listOfTorroxApartments = new List<Apartment>();
-            foreach(Apartment apartment in ReadAllApartments())
+            foreach(var apartment in ReadAllApartments())
             {
-                if (apartment.Address.City.Equals("Torrox"))
-                {
                     listOfTorroxApartments.Add(apartment);
-                }
                 
             }
             return listOfTorroxApartments;

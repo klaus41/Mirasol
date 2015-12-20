@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DTOModel.Apartment>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Showing all Apartments</title>
+</head>
+<body>
+    <font face="Arial" size="7">List of all Apartments</font>
+    <hr noshade />
+    @foreach (var apartment in Model)
+    {
+        <table width="100%">
+            <tr>
+                <td width="100%">
+                    <font face="Arial" size="3">@apartment.Name</font>
+                </td>
+                <td>
+                    <form method="get" action="/Apartment/Update">
+                        <input type="hidden" value="@apartment" />
+                        <input type="submit" value="Update" />
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="/Apartment/Delete">
+                        <input type="hidden" value="@apartment" />
+                        <input type="submit" value="Delete" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <hr noshade />
+    }
+    <table width="100%">
+        <tr>
+            <td width="100%" align="right">
+                <form action="/Apartment/Create">
+                    <input type="submit" value="Create New Apartment" />
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

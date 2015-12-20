@@ -17,11 +17,17 @@ namespace Mirasol.Controllers
             IEnumerable<Apartment> apartments = facade.GetApartmentFilter().ReadAllApartments();
             return View(apartments);
         }
-
+        [HttpGet]
+        public ActionResult Create()
+        {
+            Apartment apartment = new Apartment();
+            return View(apartment);
+        }
+        [HttpPost]
         public ActionResult Create(Apartment apartment)
         {
             facade.GetApartmentProxyService().Create(apartment);
-            return View();
+            return Redirect("Index");
         }
         [HttpGet]
         public ActionResult Update(int id)
