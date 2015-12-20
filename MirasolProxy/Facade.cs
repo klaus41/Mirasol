@@ -1,6 +1,7 @@
 ﻿using MirasolProxy.Converters;
 using MirasolProxy.Filter;
 using MirasolProxy.Proxies;
+using MirasolProxy.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace MirasolProxy
         private PricesProxyService pricesProxy;
         private UserProxyService userProxy;
         private CurrencyConverter currencyConverter;
+        private LoginChecker loginChecker;
 
         public ApartmentFilter GetApartmentFilter()
         {
@@ -91,6 +93,15 @@ namespace MirasolProxy
                 currencyConverter = new CurrencyConverter();
             }
             return currencyConverter;
+        }
+
+        public LoginChecker GetLoginChecker()
+        {
+            if (loginChecker == null)
+            {
+                loginChecker = new LoginChecker();
+            }
+            return loginChecker;
         }
     }
 }
