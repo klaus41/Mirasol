@@ -11,12 +11,13 @@ namespace Mirasol.Controllers
     public class PricesController : Controller, IController<Prices>
     {
         private Facade facade = new Facade();
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Prices t)
         {
             facade.GetPricesProxyService().Create(t);
             return View();
         }
-
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             facade.GetPricesProxyService().Delete(id);
@@ -35,7 +36,7 @@ namespace Mirasol.Controllers
             IEnumerable<Prices> prices = facade.GetPricesProxyService().ReadAll();
             return View(prices);
         }
-
+        [ValidateAntiForgeryToken]
         public ActionResult PostUpdate(Prices t)
         {
             facade.GetPricesProxyService().Update(t);

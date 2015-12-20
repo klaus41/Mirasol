@@ -24,6 +24,7 @@ namespace Mirasol.Controllers
             return View(apartment);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Apartment apartment)
         {
             facade.GetApartmentProxyService().Create(apartment);
@@ -37,12 +38,13 @@ namespace Mirasol.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Update(Apartment apartment)
         {
             facade.GetApartmentProxyService().Update(apartment);
             return View();
         }
-
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             facade.GetApartmentProxyService().Delete(id);

@@ -20,7 +20,7 @@ namespace Mirasol.Controllers
         }
         
         [HttpPost]
-        
+        [ValidateAntiForgeryToken]
         public ActionResult Login(User user)
         {
             Session["userLogin"] = user;

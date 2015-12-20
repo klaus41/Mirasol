@@ -11,12 +11,15 @@ namespace Mirasol.Controllers
     public class FacilitiesController : Controller, IController<Facilities>
     {
         private Facade facade = new Facade();
+
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Facilities t)
         {
             facade.GetFacilitiesProxyService().Create(t);
             return View();
         }
 
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             facade.GetFacilitiesProxyService().Delete(id);
@@ -36,6 +39,7 @@ namespace Mirasol.Controllers
             return View(facilities);
         }
 
+        [ValidateAntiForgeryToken]
         public ActionResult PostUpdate(Facilities t)
         {
             facade.GetFacilitiesProxyService().Update(t);

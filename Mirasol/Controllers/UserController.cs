@@ -11,13 +11,13 @@ namespace Mirasol.Controllers
     public class UserController : Controller, IController<User>
     {
         private Facade facade = new Facade();
-
+        [ValidateAntiForgeryToken]
         public ActionResult Create(User t)
         {
             facade.GetUserProxyService().Create(t);
             return View();
         }
-
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             facade.GetUserProxyService().Delete(id);
@@ -36,7 +36,7 @@ namespace Mirasol.Controllers
             IEnumerable<User> users = facade.GetUserProxyService().ReadAll();
             return View(users);
         }
-
+        [ValidateAntiForgeryToken]
         public ActionResult PostUpdate(User t)
         {
             facade.GetUserProxyService().Update(t);

@@ -11,12 +11,15 @@ namespace Mirasol.Controllers
     public class BookingsController : Controller, IController<Bookings>
     {
         private Facade facade = new Facade();
+
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Bookings t)
         {
             facade.GetBookingsProxyService().Create(t);
             return View();
         }
 
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             facade.GetBookingsProxyService().Delete(id);
@@ -36,6 +39,7 @@ namespace Mirasol.Controllers
             return View(bookings);
         }
 
+        [ValidateAntiForgeryToken]
         public ActionResult PostUpdate(Bookings t)
         {
             facade.GetBookingsProxyService().Update(t);
